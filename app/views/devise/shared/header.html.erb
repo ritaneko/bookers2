@@ -1,0 +1,49 @@
+
+  
+  <header class="row bg-dark justify-content-between p-2">
+    <div class="text-white">
+      <h2>Bookers</h2>
+    </div>
+    <ul class="nav">
+      <% if user_signed_in? %>
+       <li class="nav-item">
+         <link_to user_path(current_user.id), class: "nav-link text-white" do %>
+           <%= fa_icon "home" %>Home
+           <% end %>
+       </li>
+       <li class= "nav-item">
+         <%= link_to users_path, class: "nav-link text-white" do %>
+          <%= fa_icon "book" %>Books
+          <% end %>
+       </li>
+       <li class= "nav-item">
+         <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-white" do %>
+          <%= fa_icon "sign-out" %>log out
+         <% end %>
+       </li>
+   <% else %>
+    <li class= "nav-item">
+      <%= link_to new_user_session_path, class: "nav-link text-white" do %>
+       <%= fa_icon "home" %>Home
+      <% end %>
+    </li>
+    <li>
+      <%= link_to new_user_session_path, class: "nav-link text-white" do %>
+       <%= fa_icon "link" %>About
+      <% end %>
+    </li>
+    <li>
+      <%= link_to new_user_registration_path, class: "nav-link text-white" do %>
+       <%= fa_icon "user-plas" %>sign up
+      <% end %>
+    </li>
+    <li>
+      <%= link_to new_user_session_path, class: "nav-link text-white" do %>
+       <%= fa_icon "sign-in" %>login
+      <% end %>
+    </li>
+  </ul>
+  <% end %>
+  </header>
+    <%= yield %>
+</html>
